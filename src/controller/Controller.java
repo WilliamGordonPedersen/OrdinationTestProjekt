@@ -152,11 +152,11 @@ public class Controller {
 	}
 
 	public void createSomeObjects() {
-		this.opretPatient("121256-0512", "Jane Jensen", 63.4);
-		this.opretPatient("070985-1153", "Finn Madsen", 83.2);
-		this.opretPatient("050972-1233", "Hans Jørgensen", 89.4);
-		this.opretPatient("011064-1522", "Ulla Nielsen", 59.9);
-		this.opretPatient("090149-2529", "Ib Hansen", 87.7);
+		this.opretPatient("121256-0512", "Jane Jensen", 63.4, null);
+		this.opretPatient("070985-1153", "Finn Madsen", 83.2,null);
+		this.opretPatient("050972-1233", "Hans Jørgensen", 89.4,null);
+		this.opretPatient("011064-1522", "Ulla Nielsen", 59.9,null);
+		this.opretPatient("090149-2529", "Ib Hansen", 87.7,null);
 
 		this.opretLaegemiddel("Acetylsalicylsyre", 0.1, 0.15, 0.16, "Styk");
 		this.opretLaegemiddel("Paracetamol", 1, 1.5, 2, "Ml");
