@@ -23,14 +23,14 @@ public class PN extends Ordination {
      */
     public boolean givDosis(LocalDate givesDen) {
         // TODO
-        givesDen= LocalDate.now();
+
         antalGivetDosis++;
         return false;   
     }
 
     public double doegnDosis() {
-        // TODO
-        return 0.0;
+        double dosis = (getAntalGangeGivet() * antalEnheder) / antalDage();
+        return dosis;
     }
 
     @Override
@@ -40,9 +40,7 @@ public class PN extends Ordination {
 
 
     public double samletDosis() {
-        // TODO
-        double dosis=0.0;
-        return dosis;
+        return 0.0;
     }
 
     /**
