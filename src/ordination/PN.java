@@ -55,4 +55,7 @@ public class PN extends Ordination {
         return antalEnheder;
     }
 
+    public Laegemiddel getLaegemiddel() {
+        return null;
+    }
 }
