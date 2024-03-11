@@ -32,5 +32,5 @@ public class Dosis {
     public String toString(){
         return "Kl: " + tid + "   antal:  " + antal;
     }
-//hej test 1
+//test2
 }
