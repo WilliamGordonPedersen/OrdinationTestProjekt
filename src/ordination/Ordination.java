@@ -61,3 +61,4 @@ public abstract class Ordination {
         return laegemiddel;
     }
 }
+

@@ -17,12 +17,15 @@ public class DagligFast extends Ordination{
 
     @Override
     public double samletDosis() {
-        return 0;
+        double samletDosis = doegnDosis() * antalDage();
+        return samletDosis;
     }
 
+    // Vi skal have fundet måden af finde ud af om patienten er let/normal/tung. Jeg har kun normal metode
     @Override
     public double doegnDosis() {
-        return 0;
+        double samlet = getLaegemiddel().getEnhedPrKgPrDoegnNormal() * 4;
+        return samlet;
     }
 
     @Override
