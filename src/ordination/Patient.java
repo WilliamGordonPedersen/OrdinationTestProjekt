@@ -8,7 +8,8 @@ public class Patient {
     private double vaegt;
     // TODO: Link til Ordination
     private ArrayList<Ordination> ordinationer;
-    public Patient(String cprnr, String navn, double vaegt, ArrayList<Ordination> ordinationer) {
+
+    public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
         this.navn = navn;
         this.vaegt = vaegt;
@@ -27,18 +28,23 @@ public class Patient {
         this.navn = navn;
     }
 
-    public double getVaegt(){
+    public double getVaegt() {
         return vaegt;
     }
 
-    public void setVaegt(double vaegt){
+    public void setVaegt(double vaegt) {
         this.vaegt = vaegt;
     }
 
     //TODO: Metoder (med specifikation) til at vedligeholde link til Ordination
 
+
+    public ArrayList<Ordination> getOrdinationer() {
+        return ordinationer;
+    }
+
     @Override
-    public String toString(){
+    public String toString() {
         return navn + "  " + cprnr;
     }
 

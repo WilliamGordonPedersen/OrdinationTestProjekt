@@ -42,4 +42,7 @@ public class PN {
         return antalEnheder;
     }
 
+    public Laegemiddel getLaegemiddel() {
+        return null;
+    }
 }

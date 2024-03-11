@@ -32,7 +32,9 @@ public abstract class Ordination {
     public int antalDage() {
         return (int) ChronoUnit.DAYS.between(startDen, slutDen) + 1;
     }
-
+    public Laegemiddel getLaegemiddel() {
+        return null;
+    }
     @Override
     public String toString() {
         return startDen.toString();
@@ -55,4 +57,6 @@ public abstract class Ordination {
      * @return
      */
     public abstract String getType();
+
+
 }
