@@ -86,7 +86,21 @@ public class Controller {
 	 */
 	public double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
 		//TODO
-		return 0;
+		double anbefaletDosis = 0.0;
+
+		if(patient.getVaegt()<25) {
+
+		}
+
+		if (25  <= patient.getVaegt() && patient.getVaegt() <= 120 ) {
+
+		}
+
+		if (patient.getVaegt() > 120) {
+
+		}
+
+		return anbefaletDosis;
 	}
 
 	/**

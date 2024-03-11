@@ -44,4 +44,5 @@ public class Patient {
         return navn + "  " + cprnr;
     }
 
+
 }

@@ -8,7 +8,7 @@ import java.time.LocalTime;
 public class PN extends Ordination {
 
     private double antalEnheder;
-    private double antalGivetDosis;
+    private int antalGivetDosis;
 
     public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
         super(startDen, slutDen, laegemiddel);
@@ -23,8 +23,7 @@ public class PN extends Ordination {
      */
     public boolean givDosis(LocalDate givesDen) {
         // TODO
-
-
+        givesDen= LocalDate.now();
         antalGivetDosis++;
         return false;   
     }
@@ -42,7 +41,8 @@ public class PN extends Ordination {
 
     public double samletDosis() {
         // TODO
-        return 0.0;
+        double dosis=0.0;
+        return dosis;
     }
 
     /**
@@ -50,8 +50,7 @@ public class PN extends Ordination {
      * @return
      */
     public int getAntalGangeGivet() {
-        // TODO
-        return-1;
+        return antalGivetDosis;
     }
 
     public double getAntalEnheder() {
