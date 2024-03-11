@@ -29,7 +29,7 @@ public class Dosis {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Kl: " + tid + "   antal:  " + antal;
     }
 
