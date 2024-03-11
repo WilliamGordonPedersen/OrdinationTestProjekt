@@ -4,11 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import ordination.DagligFast;
-import ordination.DagligSkaev;
-import ordination.Laegemiddel;
-import ordination.PN;
-import ordination.Patient;
+import ordination.*;
 import storage.Storage;
 
 public class Controller {
@@ -126,8 +122,8 @@ public class Controller {
 		return result;
 	}
 
-	public Patient opretPatient(String cpr, String navn, double vaegt) {
-		Patient p = new Patient(cpr, navn, vaegt);
+	public Patient opretPatient(String cpr, String navn, double vaegt, Ordination ordination) {
+		Patient p = new Patient(cpr, navn, vaegt, ordination);
 		storage.addPatient(p);
 		return p;
 	}
