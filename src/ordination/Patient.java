@@ -8,7 +8,7 @@ public class Patient {
     private double vaegt;
     // TODO: Link til Ordination
     private ArrayList<Ordination> ordinationer;
-    public Patient(String cprnr, String navn, double vaegt, ArrayList<Ordination> ordinationer) {
+    public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
         this.navn = navn;
         this.vaegt = vaegt;

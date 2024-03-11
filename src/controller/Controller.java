@@ -136,8 +136,8 @@ public class Controller {
 		return result;
 	}
 
-	public Patient opretPatient(String cpr, String navn, double vaegt, Ordination ordination) {
-		Patient p = new Patient(cpr, navn, vaegt, ordination);
+	public Patient opretPatient(String cpr, String navn, double vaegt) {
+		Patient p = new Patient(cpr, navn, vaegt);
 		storage.addPatient(p);
 		return p;
 	}
