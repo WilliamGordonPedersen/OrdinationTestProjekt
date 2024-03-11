@@ -15,6 +15,7 @@ public abstract class Ordination {
         this.startDen = startDen;
         this.slutDen = slutDen;
         this.laegemiddel = laegemiddel;
+
     }
 
     public LocalDate getStartDen() {

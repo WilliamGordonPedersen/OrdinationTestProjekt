@@ -1,10 +1,18 @@
 package ordination;
 
-import java.time.LocalDate;
+import gui.OrdinationDetailsPane;
 
-public class PN {
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+public class PN extends Ordination {
 
     private double antalEnheder;
+    private double antalGivetDosis;
+
+    public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
+        super(startDen, slutDen, laegemiddel);
+    }
 
     /**
      * Registrerer at der er givet en dosis paa dagen givesDen
@@ -15,12 +23,20 @@ public class PN {
      */
     public boolean givDosis(LocalDate givesDen) {
         // TODO
+
+
+        antalGivetDosis++;
         return false;   
     }
 
     public double doegnDosis() {
         // TODO
         return 0.0;
+    }
+
+    @Override
+    public String getType() {
+        return null;
     }
 
 

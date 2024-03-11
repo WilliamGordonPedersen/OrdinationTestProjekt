@@ -32,9 +32,5 @@ public class Dosis {
     public String toString(){
         return "Kl: " + tid + "   antal:  " + antal;
     }
-//test2
-    //TestDaniel2
-    //TestDaniel
 
-    //TestKela123
 }
