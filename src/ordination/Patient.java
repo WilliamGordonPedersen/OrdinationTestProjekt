@@ -48,7 +48,5 @@ public class Patient {
     }
 
 
-    public Ordination getOrdinationer() {
-        return ordination;
-    }
+
 }
