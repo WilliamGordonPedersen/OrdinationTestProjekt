@@ -11,7 +11,7 @@ public class DagligSkaev extends Ordination{
     private ArrayList<Dosis> doser = new ArrayList<>();
 
     public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, ArrayList<Dosis> doser) {
-        super(startDen, slutDen, laegemiddel);
+        super(startDen, slutDen);
         this.doser = doser;
     }
 
@@ -28,12 +28,18 @@ public class DagligSkaev extends Ordination{
 
     @Override
     public double samletDosis() {
-        return 0;
+        double samlet = 0;
+        for (Dosis dosis : doser) {
+            samlet = dosis.getAntal();
+        }
+        return samlet;
     }
 
     @Override
     public double doegnDosis() {
-        return 0;
+        double samlet = 0;
+        samlet = samletDosis() / antalDage();
+        return samlet;
     }
 
     @Override

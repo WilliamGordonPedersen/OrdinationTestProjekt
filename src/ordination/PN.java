@@ -11,7 +11,8 @@ public class PN extends Ordination {
     private int antalGivetDosis;
 
     public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
-        super(startDen, slutDen, laegemiddel);
+        super(startDen, slutDen);
+        this.antalEnheder = antalEnheder;
     }
 
     /**
@@ -23,7 +24,10 @@ public class PN extends Ordination {
      */
     public boolean givDosis(LocalDate givesDen) {
         // TODO
-
+        if (LocalDate.now().compareTo(getStartDen()) < 0 && LocalDate.now().compareTo(getSlutDen()) > 0) {
+            //Vi skal have registreret tidspunktet
+            return true;
+        }
         antalGivetDosis++;
         return false;   
     }

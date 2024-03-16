@@ -29,7 +29,6 @@ public class DagligFast extends Ordination{
         return samlet;
     }
 
-    // Vi skal have fundet måden af finde ud af om patienten er let/normal/tung. Jeg har kun normal metode
     @Override
     public double doegnDosis() {
         double samlet = 0;
