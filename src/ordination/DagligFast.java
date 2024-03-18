@@ -11,9 +11,9 @@ public class DagligFast extends Ordination{
         super(startDen, slutDen);
         this.doser = new Dosis[4];
         doser[0] = new Dosis(LocalTime.of(8,0),morgenAntal);
-        doser[0] = new Dosis(LocalTime.of(12,0),middagAntal);
-        doser[0] = new Dosis(LocalTime.of(20,0),aftenAntal);
-        doser[0] = new Dosis(LocalTime.of(2,0),natAntal);
+        doser[1] = new Dosis(LocalTime.of(12,0),middagAntal);
+        doser[2] = new Dosis(LocalTime.of(18,0),aftenAntal);
+        doser[3] = new Dosis(LocalTime.of(22,0),natAntal);
     }
 
     public Dosis[] getDoser() {
