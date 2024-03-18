@@ -46,17 +46,11 @@ public class DagligSkaev extends Ordination{
 
     @Override
     public double doegnDosis() {
-        double doegndosis = (getAntalGangeGivet() * antalCounter) / antalDage();
-        return doegndosis;
-    }
-    public double givDosis() {
-        antalCounter++;
-        return 0;
+        double samlet = 0;
+        samlet = samletDosis() / antalDage();
+        return samlet;
     }
 
-    private double getAntalGangeGivet() {
-        return antalCounter;
-    }
 
     @Override
     public String getType() {
