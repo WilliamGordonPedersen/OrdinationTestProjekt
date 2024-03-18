@@ -12,8 +12,9 @@ public class DagligSkaev extends Ordination{
     // TODO Kompositionen mellem DagligSkæv og Dosis skal realiseres ved en ArrayList<Dosis>
     private ArrayList<Dosis> doser = new ArrayList<>();
 
-    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, ArrayList<Dosis> doser) {
-        super(startDen, slutDen);
+    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalCounter, ArrayList<Dosis> doser) {
+        super(startDen, slutDen, laegemiddel);
+        this.antalCounter = antalCounter;
         this.doser = doser;
         doser.add(0, new Dosis(LocalTime.of(9, 30), 2));
         doser.add(1, new Dosis(LocalTime.of(10, 30), 1));
