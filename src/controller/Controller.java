@@ -2,6 +2,7 @@ package controller;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import ordination.*;
@@ -36,6 +37,12 @@ public class Controller {
 	public PN opretPNOrdination(LocalDate startDen, LocalDate slutDen,
 			Patient patient, Laegemiddel laegemiddel, double antal) {
 		// TODO
+		if (startDen.isAfter(slutDen)) {
+			new IllegalArgumentException("startdato er før slutdato");
+		} else if (startDen.isBefore(slutDen)) {
+			PN nyPN = new PN(startDen, slutDen, laegemiddel);
+			return nyPN;
+		}
 		return null;
 	}
 
@@ -64,6 +71,12 @@ public class Controller {
 	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			LocalTime[] klokkeSlet, double[] antalEnheder) {
+		ArrayList<Dosis> dosis = new ArrayList<>();
+		for (int i = 0; i < klokkeSlet.length; i++) {
+			Dosis dosis1 = new Dosis(klokkeSlet[i], antalEnheder[i]);
+			dosis.add(dosis1);
+		}
+		DagligSkaev dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel, dosis);
 		// TODO
 		return null;
 	}
