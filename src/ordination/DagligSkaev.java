@@ -46,9 +46,9 @@ public class DagligSkaev extends Ordination{
 
     @Override
     public double doegnDosis() {
-        double samlet = 0;
-        samlet = samletDosis() / antalDage();
-        return samlet;
+        double gnsDoegnDosis = 0;
+        gnsDoegnDosis = samletDosis() / antalDage();
+        return gnsDoegnDosis;
     }
 
 

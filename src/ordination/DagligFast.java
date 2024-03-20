@@ -22,13 +22,18 @@ public class DagligFast extends Ordination {
 
     @Override
     public double samletDosis() {
-
-        return 0;
+        double samletDosisPeriode = 0;
+        for (Dosis dosis : doser) {
+            samletDosisPeriode = dosis.getAntal();
+        }
+        return samletDosisPeriode;
     }
 
     @Override
     public double doegnDosis() {
-        return 0;
+        double gnsDoegnDos = 0;
+        gnsDoegnDos = samletDosis() / antalDage();
+        return gnsDoegnDos;
     }
 
     @Override
