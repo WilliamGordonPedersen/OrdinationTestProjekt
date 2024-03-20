@@ -56,7 +56,7 @@ public class Controller {
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
-		DagligFast dagligFast = new DagligFast(startDen, slutDen, morgenAntal, middagAntal, aftenAntal, natAntal, laegemiddel);
+		DagligFast dagligFast = new DagligFast(startDen, slutDen, laegemiddel, middagAntal, aftenAntal, natAntal, morgenAntal);
 		// TODO
 		return dagligFast;
 	}
