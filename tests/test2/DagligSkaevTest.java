@@ -18,7 +18,7 @@ class DagligSkaevTest {
     void samletDosis() {
         Laegemiddel laegemiddel = new Laegemiddel("paracetamol", 5.0, 5.0, 5.0, "");
         ArrayList<Dosis> doser = new ArrayList<>();
-        Dosis dosis = new Dosis(LocalTime.of(8, 30), 5);
+        Dosis dosis = new Dosis(LocalTime.of(8, 30), 14);
         doser.add(dosis);
         DagligSkaev skaev = new DagligSkaev(LocalDate.of(2024, 2, 11), LocalDate.of(2024, 2, 20), laegemiddel, doser);
         double actual = skaev.samletDosis();
