@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class DagligFast extends Ordination {
-    // TODO Kompositionen mellem DagligFast og Dosis skal realiseres ved et array af doser: Dosis[4]
     private Dosis[] doser;
 
     public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel,
@@ -23,12 +22,18 @@ public class DagligFast extends Ordination {
 
     @Override
     public double samletDosis() {
-        return 0;
+        double samletDosisPeriode = 0;
+        for (Dosis dosis : doser) {
+            samletDosisPeriode = dosis.getAntal();
+        }
+        return samletDosisPeriode;
     }
 
     @Override
     public double doegnDosis() {
-        return 0;
+        double gnsDoegnDos = 0;
+        gnsDoegnDos = samletDosis() / antalDage();
+        return gnsDoegnDos;
     }
 
     @Override
