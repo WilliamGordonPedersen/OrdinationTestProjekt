@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class DagligFast extends Ordination {
-    private static Dosis[] doser;
+    private Dosis[] doser;
 
     public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel,
                       double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
@@ -18,17 +18,17 @@ public class DagligFast extends Ordination {
         doser[3] = new Dosis(LocalTime.of(22, 0), natAntal);
     }
 
-    public static Dosis[] getDoser() {
+    public Dosis[] getDoser() {
         return doser;
     }
 
     @Override
     public double samletDosis() {
-        double samletDosisPeriode = 0;
-        for (Dosis dosis : doser) {
-            samletDosisPeriode = dosis.getAntal() * antalDage();
+        double samletAntal = 0.0;
+        for (int i = 0; i < doser.length; i++) {
+            samletAntal += doser[i].getAntal() * antalDage();
         }
-        return samletDosisPeriode;
+        return samletAntal;
     }
 
     @Override
