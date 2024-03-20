@@ -37,6 +37,12 @@ public class DagligFast extends Ordination {
         gnsDoegnDos = samletDosis() / antalDage();
         return gnsDoegnDos;
     }
+    public void opretDosis(LocalTime tid, double antal) {
+        Dosis dagligFast = new Dosis(tid, antal);
+        for (int i = 0; i < doser.length; i++) {
+        doser[i]=dagligFast;
+        }
+    }
 
     @Override
     public String getType() {

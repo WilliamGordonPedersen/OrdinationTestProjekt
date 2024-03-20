@@ -53,8 +53,15 @@ public class Controller {
      * Pre: margenAntal, middagAntal, aftanAntal, natAntal >= 0
      */
     public DagligFast opretDagligFastOrdination(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
-        DagligFast dagligFast = new DagligFast(startDen, slutDen, laegemiddel, middagAntal, aftenAntal, natAntal, morgenAntal);
-        // TODO
+        DagligFast dagligFast = null;
+        if (startDen.isBefore(slutDen)) {
+            dagligFast = new DagligFast(startDen, slutDen, laegemiddel, middagAntal, aftenAntal, natAntal, morgenAntal);
+            dagligFast.opretDosis(LocalTime.of(8, 0), morgenAntal);
+            dagligFast.opretDosis(LocalTime.of(12, 0), middagAntal);
+            dagligFast.opretDosis(LocalTime.of(18, 0), aftenAntal);
+            dagligFast.opretDosis(LocalTime.of(22, 0), natAntal);
+            patient.addOrdination(dagligFast);
+        } else throw new IllegalArgumentException("not a valid time");
         return dagligFast;
     }
 
@@ -67,18 +74,14 @@ public class Controller {
      * Pre: alle tal i antalEnheder > 0
      */
     public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, LocalTime[] klokkeSlet, double[] antalEnheder) {
-
         DagligSkaev dagligSkaev = null;
-
         if (startDen.isBefore(slutDen)) {
-         dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel);
-
+            dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel);
             for (int i = 0; i < klokkeSlet.length; i++) {
                 dagligSkaev.opretDosis(klokkeSlet[i], antalEnheder[i]);
             }
             patient.addOrdination(dagligSkaev);
-        } else
-            throw new IllegalArgumentException("not a valid date");
+        } else throw new IllegalArgumentException("not a valid date");
         return dagligSkaev;
     }
 
@@ -89,7 +92,7 @@ public class Controller {
      * Pre: ordination og dato er ikke null
      */
     public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-        // TODO
+
     }
 
     /**
