@@ -1,6 +1,7 @@
 package ordination;
 
 import gui.OrdinationDetailsPane;
+import gui.TypeOrdination;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -39,7 +40,8 @@ public class PN extends Ordination {
 
     @Override
     public String getType() {
-        return null;
+        String type = TypeOrdination.PN.toString();
+        return type;
     }
 
 
