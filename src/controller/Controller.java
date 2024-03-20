@@ -12,7 +12,7 @@ public class Controller {
 	private Storage storage;
 	private static Controller controller;
 
-	Controller() {
+	private Controller() {
 		storage = new Storage();
 	}
 
@@ -40,7 +40,7 @@ public class Controller {
 		if (startDen.isAfter(slutDen)) {
 			new IllegalArgumentException("startdato er før slutdato");
 		} else if (startDen.isBefore(slutDen)) {
-			PN nyPN = new PN(startDen, slutDen, laegemiddel);
+			PN nyPN = new PN(startDen, slutDen, laegemiddel, 3,0);
 			return nyPN;
 		}
 		return null;
@@ -69,17 +69,18 @@ public class Controller {
 	 * Pre: startDen, slutDen, patient og laegemiddel er ikke null
 	 * Pre: alle tal i antalEnheder > 0
 	 */
-	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, LocalTime[] klokkeSlet, double[] antalEnheder) {
-
-        ArrayList<Dosis> dosis = new ArrayList<>();
+	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,
+			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
+			LocalTime[] klokkeSlet, double[] antalEnheder) {
+		ArrayList<Dosis> dosis = new ArrayList<>();
 		for (int i = 0; i < klokkeSlet.length; i++) {
 			Dosis dosis1 = new Dosis(klokkeSlet[i], antalEnheder[i]);
 			dosis.add(dosis1);
 		}
-		DagligSkaev dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel, dosis);
+		DagligSkaev dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel);
+		// TODO
 		return dagligSkaev;
-        }
-
+	}
 
 	/**
 	 * En dato for hvornår ordinationen anvendes tilføjes ordinationen. Hvis

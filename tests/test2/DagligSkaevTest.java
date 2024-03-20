@@ -20,7 +20,7 @@ class DagligSkaevTest {
         ArrayList<Dosis> doser = new ArrayList<>();
         Dosis dosis = new Dosis(LocalTime.of(8, 30), 14);
         doser.add(dosis);
-        DagligSkaev skaev = new DagligSkaev(LocalDate.of(2024, 2, 11), LocalDate.of(2024, 2, 20), laegemiddel, doser);
+        DagligSkaev skaev = new DagligSkaev(LocalDate.of(2024, 2, 11), LocalDate.of(2024, 2, 20), laegemiddel);
         double actual = skaev.samletDosis();
         assertEquals(14, actual);
 

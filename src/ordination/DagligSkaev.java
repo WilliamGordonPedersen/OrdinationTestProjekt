@@ -7,22 +7,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class DagligSkaev extends Ordination{
-    private double antalCounter=0;
-    // TODO Kompositionen mellem DagligSkæv og Dosis skal realiseres ved en ArrayList<Dosis>
-    private ArrayList<Dosis> doser = new ArrayList<>();
+public class DagligSkaev extends Ordination {
+    private ArrayList<Dosis> doser;
 
-    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalCounter, ArrayList<Dosis> doser) {
+    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
         super(startDen, slutDen, laegemiddel);
-        this.antalCounter = antalCounter;
-        this.doser = doser;
-        doser.add(0, new Dosis(LocalTime.of(9, 30), 2));
-        doser.add(1, new Dosis(LocalTime.of(10, 30), 1));
-        doser.add(2, new Dosis(LocalTime.of(13, 30), 2));
-        doser.add(3, new Dosis(LocalTime.of(13, 30), 1));
-        doser.add(4, new Dosis(LocalTime.of(19, 30), 2));
-        doser.add(5, new Dosis(LocalTime.of(20, 30), 1));
-
+        this.doser = new ArrayList<Dosis>();
     }
 
     public ArrayList<Dosis> getDoser() {
@@ -30,18 +20,18 @@ public class DagligSkaev extends Ordination{
     }
 
     public void opretDosis(LocalTime tid, double antal) {
-        Dosis dosis = new Dosis(tid, antal);
-        Storage storage = new Storage();
-        storage.addDosisTilList(dosis);
+        Dosis dagligSkaevDos = new Dosis(tid, antal);
+        doser.add(dagligSkaevDos);
     }
+
 
     @Override
     public double samletDosis() {
-        double samletAntal = 0.0;
+        double samletDosisPeriode = 0.0;
         for (int i = 0; i < doser.size(); i++) {
-            samletAntal+=doser.get(i).getAntal();
+            samletDosisPeriode += doser.get(i).getAntal();
         }
-        return samletAntal;
+        return samletDosisPeriode;
     }
 
     @Override
@@ -54,7 +44,7 @@ public class DagligSkaev extends Ordination{
 
     @Override
     public String getType() {
-    String type=TypeOrdination.SKAEV.toString();
+        String type = TypeOrdination.SKAEV.toString();
         return type;
     }
 }

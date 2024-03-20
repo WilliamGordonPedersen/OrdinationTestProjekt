@@ -1,5 +1,7 @@
 package ordination;
 
+import gui.TypeOrdination;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -38,6 +40,7 @@ public class DagligFast extends Ordination {
 
     @Override
     public String getType() {
-        return null;
+        String type = TypeOrdination.FAST.toString();
+        return type;
     }
 }

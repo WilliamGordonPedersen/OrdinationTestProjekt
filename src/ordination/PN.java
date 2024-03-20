@@ -1,19 +1,23 @@
 package ordination;
 
 import gui.OrdinationDetailsPane;
+import gui.TypeOrdination;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class PN extends Ordination {
 
     private double antalEnheder;
     private int antalGivetDosis;
+    private ArrayList<Dosis> doser = new ArrayList<>();
 
     public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalEnheder, int antalGivetDosis) {
         super(startDen, slutDen, laegemiddel);
         this.antalEnheder = antalEnheder;
         this.antalGivetDosis = antalGivetDosis;
+        this.doser = doser;
     }
 
 
@@ -26,10 +30,13 @@ public class PN extends Ordination {
      * @return
      */
     public boolean givDosis(LocalDate givesDen) {
-        // TODO
-
-        antalGivetDosis++;
-        return false;
+        if (LocalDate.now().compareTo(getStartDen()) > 0 && LocalDate.now().compareTo(getSlutDen()) < 0) {
+            givesDen = LocalDate.now();
+            antalGivetDosis++;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public double doegnDosis() {
@@ -39,12 +46,17 @@ public class PN extends Ordination {
 
     @Override
     public String getType() {
-        return null;
+        String type = TypeOrdination.PN.toString();
+        return type;
     }
 
 
     public double samletDosis() {
-        return 0.0;
+        double samletAntal = 0.0;
+        for (int i = 0; i < doser.size(); i++) {
+            samletAntal+=doser.get(i).getAntal();
+        }
+        return samletAntal;
     }
 
     /**
@@ -58,6 +70,10 @@ public class PN extends Ordination {
 
     public double getAntalEnheder() {
         return antalEnheder;
+    }
+
+    public ArrayList<Dosis> getDoser() {
+        return doser;
     }
 
     public Laegemiddel getLaegemiddel() {
