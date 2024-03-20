@@ -40,7 +40,7 @@ public class Controller {
 		if (startDen.isAfter(slutDen)) {
 			new IllegalArgumentException("startdato er før slutdato");
 		} else if (startDen.isBefore(slutDen)) {
-			PN nyPN = new PN(startDen, slutDen, laegemiddel);
+			PN nyPN = new PN(startDen, slutDen, laegemiddel, 3,0);
 			return nyPN;
 		}
 		return null;
@@ -76,7 +76,7 @@ public class Controller {
 			Dosis dosis1 = new Dosis(klokkeSlet[i], antalEnheder[i]);
 			dosis.add(dosis1);
 		}
-		DagligSkaev dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel, dosis);
+		DagligSkaev dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel);
 		// TODO
 		return dagligSkaev;
 	}
