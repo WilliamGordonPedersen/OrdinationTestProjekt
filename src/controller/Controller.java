@@ -78,7 +78,7 @@ public class Controller {
 		}
 		DagligSkaev dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel, dosis);
 		// TODO
-		return null;
+		return dagligSkaev;
 	}
 
 	/**
@@ -100,19 +100,12 @@ public class Controller {
 	public double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
 		//TODO
 		double anbefaletDosis = 0.0;
-
 		if(patient.getVaegt()<25) {
-
 		}
-
 		if (25  <= patient.getVaegt() && patient.getVaegt() <= 120 ) {
-
 		}
-
 		if (patient.getVaegt() > 120) {
-
 		}
-
 		return anbefaletDosis;
 	}
 
