@@ -3,6 +3,7 @@ package ordination;
 import gui.OrdinationDetailsPane;
 import gui.TypeOrdination;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -10,14 +11,12 @@ import java.util.ArrayList;
 public class PN extends Ordination {
 
     private double antalEnheder;
-    private int antalGivetDosis;
-    private ArrayList<Dosis> doser = new ArrayList<>();
+    private ArrayList<Dosis> antalgivetDoser;
 
-    public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalEnheder, int antalGivetDosis) {
+    public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalEnheder) {
         super(startDen, slutDen, laegemiddel);
         this.antalEnheder = antalEnheder;
-        this.antalGivetDosis = antalGivetDosis;
-        this.doser = doser;
+        this.antalgivetDoser = new ArrayList<>();
     }
 
 
@@ -29,10 +28,9 @@ public class PN extends Ordination {
      * @param givesDen
      * @return
      */
-    public boolean givDosis(LocalDate givesDen) {
+    public boolean givDosis(LocalDate givesDen, Dosis dosis) {
         if (LocalDate.now().compareTo(getStartDen()) > 0 && LocalDate.now().compareTo(getSlutDen()) < 0) {
-            givesDen = LocalDate.now();
-            antalGivetDosis++;
+            antalgivetDoser.add(dosis);
             return true;
         } else {
             return false;
@@ -40,8 +38,9 @@ public class PN extends Ordination {
     }
 
     public double doegnDosis() {
-        double dosis = (getAntalGangeGivet() * antalEnheder) / antalDage();
-        return dosis;
+        double gnsDoegnDosis = 0;
+        gnsDoegnDosis = (getAntalGangeGivet() * antalEnheder) / antalDage();
+        return gnsDoegnDosis;
     }
 
     @Override
@@ -52,11 +51,11 @@ public class PN extends Ordination {
 
 
     public double samletDosis() {
-        double samletAntal = 0.0;
-        for (int i = 0; i < doser.size(); i++) {
-            samletAntal+=doser.get(i).getAntal();
+        double samletDosisPeriode = 0.0;
+        for (int i = 0; i < antalgivetDoser.size(); i++) {
+            samletDosisPeriode += antalgivetDoser.get(i).getAntal();
         }
-        return samletAntal;
+        return samletDosisPeriode;
     }
 
     /**
@@ -65,19 +64,10 @@ public class PN extends Ordination {
      * @return
      */
     public int getAntalGangeGivet() {
-        return antalGivetDosis;
+        return antalgivetDoser;
     }
 
     public double getAntalEnheder() {
         return antalEnheder;
-    }
-
-    public ArrayList<Dosis> getDoser() {
-        return doser;
-    }
-
-    public Laegemiddel getLaegemiddel() {
-
-        return null;
     }
 }
