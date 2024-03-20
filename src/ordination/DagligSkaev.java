@@ -1,6 +1,7 @@
 package ordination;
 
 import gui.TypeOrdination;
+import storage.Storage;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -10,11 +11,17 @@ public class DagligSkaev extends Ordination{
     private double antalCounter=0;
     // TODO Kompositionen mellem DagligSkæv og Dosis skal realiseres ved en ArrayList<Dosis>
     private ArrayList<Dosis> doser = new ArrayList<>();
-    private ArrayList<Boolean> datoer = new ArrayList<Boolean>();
 
-    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, ArrayList<Dosis> doser) {
+    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalCounter, ArrayList<Dosis> doser) {
         super(startDen, slutDen, laegemiddel);
+        this.antalCounter = antalCounter;
         this.doser = doser;
+        doser.add(0, new Dosis(LocalTime.of(9, 30), 2));
+        doser.add(1, new Dosis(LocalTime.of(10, 30), 1));
+        doser.add(2, new Dosis(LocalTime.of(13, 30), 2));
+        doser.add(3, new Dosis(LocalTime.of(13, 30), 1));
+        doser.add(4, new Dosis(LocalTime.of(19, 30), 2));
+        doser.add(5, new Dosis(LocalTime.of(20, 30), 1));
 
     }
 
@@ -24,10 +31,8 @@ public class DagligSkaev extends Ordination{
 
     public void opretDosis(LocalTime tid, double antal) {
         Dosis dosis = new Dosis(tid, antal);
-       /*
         Storage storage = new Storage();
         storage.addDosisTilList(dosis);
-       */
     }
 
     @Override
@@ -38,24 +43,14 @@ public class DagligSkaev extends Ordination{
         }
         return samletAntal;
     }
+
     @Override
     public double doegnDosis() {
-        double doegndosis = samletDosis() / antalDage();
-        return doegndosis;
-    }
-    public boolean givDosis() {
-        if(getStartDen().isBefore(getSlutDen()) && getSlutDen().isAfter(getStartDen())) {
-            datoer.add(givDosis());
-            antalCounter++;
-            return true;
-        } else
-            return false;
-
+        double samlet = 0;
+        samlet = samletDosis() / antalDage();
+        return samlet;
     }
 
-    private double getAntalGangeGivet() {
-        return antalCounter;
-    }
 
     @Override
     public String getType() {

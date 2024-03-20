@@ -10,15 +10,18 @@ public class PN extends Ordination {
     private double antalEnheder;
     private int antalGivetDosis;
 
-    public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
+    public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalEnheder, int antalGivetDosis) {
         super(startDen, slutDen, laegemiddel);
         this.antalEnheder = antalEnheder;
+        this.antalGivetDosis = antalGivetDosis;
     }
+
 
     /**
      * Registrerer at der er givet en dosis paa dagen givesDen
      * Returnerer true hvis givesDen er inden for ordinationens gyldighedsperiode og datoen huskes
      * Retrurner false ellers og datoen givesDen ignoreres
+     *
      * @param givesDen
      * @return
      */
@@ -26,7 +29,7 @@ public class PN extends Ordination {
         // TODO
 
         antalGivetDosis++;
-        return false;   
+        return false;
     }
 
     public double doegnDosis() {
@@ -46,6 +49,7 @@ public class PN extends Ordination {
 
     /**
      * Returnerer antal gange ordinationen er anvendt
+     *
      * @return
      */
     public int getAntalGangeGivet() {

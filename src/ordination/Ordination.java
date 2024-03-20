@@ -11,10 +11,11 @@ public abstract class Ordination {
     private Laegemiddel laegemiddel;
     // TODO constructor (med specifikation)
 
+
     public Ordination(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
         this.startDen = startDen;
         this.slutDen = slutDen;
-        this.laegemiddel=laegemiddel;
+        this.laegemiddel = laegemiddel;
     }
 
     public LocalDate getStartDen() {
@@ -25,6 +26,9 @@ public abstract class Ordination {
         return slutDen;
     }
 
+    public Laegemiddel getLaegemiddel() {
+        return laegemiddel;
+    }
     /**
      * Antal hele dage mellem startdato og slutdato. Begge dage inklusive.
      * @return antal dage ordinationen gælder for
@@ -56,8 +60,6 @@ public abstract class Ordination {
      */
     public abstract String getType();
 
-    public Laegemiddel getLaegemiddel() {
-        return laegemiddel;
-    }
+
 }
 
