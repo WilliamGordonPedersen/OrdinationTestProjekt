@@ -39,7 +39,7 @@ public class PN extends Ordination {
 
     public double doegnDosis() {
         double gnsDoegnDosis = 0;
-        gnsDoegnDosis = (getAntalGangeGivet() * antalEnheder) / antalDage();
+        gnsDoegnDosis = samletDosis() / antalDage();
         return gnsDoegnDosis;
     }
 
@@ -64,7 +64,7 @@ public class PN extends Ordination {
      * @return
      */
     public int getAntalGangeGivet() {
-        return antalgivetDoser;
+        return antalgivetDoser.size();
     }
 
     public double getAntalEnheder() {
