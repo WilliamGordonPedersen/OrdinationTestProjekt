@@ -40,7 +40,7 @@ public class Controller {
 		if (startDen.isAfter(slutDen)) {
 			new IllegalArgumentException("startdato er før slutdato");
 		} else if (startDen.isBefore(slutDen)) {
-			PN nyPN = new PN(startDen, slutDen, laegemiddel, 3,0);
+			PN nyPN = new PN(startDen, slutDen, laegemiddel,antal);
 			return nyPN;
 		}
 		return null;

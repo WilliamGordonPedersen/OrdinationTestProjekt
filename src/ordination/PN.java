@@ -12,6 +12,7 @@ public class PN extends Ordination {
 
     private double antalEnheder;
     private ArrayList<Dosis> antalgivetDoser;
+    private ArrayList<LocalDate> AlleDoserGivet;
 
     public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalEnheder) {
         super(startDen, slutDen, laegemiddel);
@@ -29,12 +30,11 @@ public class PN extends Ordination {
      * @return
      */
     public boolean givDosis(LocalDate givesDen, Dosis dosis) {
-        if (LocalDate.now().compareTo(getStartDen()) > 0 && LocalDate.now().compareTo(getSlutDen()) < 0) {
-            antalgivetDoser.add(dosis);
-            return true;
-        } else {
+        if (givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen())) {
+            AlleDoserGivet.add(givesDen);
+            return true;}
+        else
             return false;
-        }
     }
 
     public double doegnDosis() {
