@@ -16,7 +16,6 @@ class ControllerTest {
 
     @Test
     void opretDagligSkaevOrdination() {
-
         Controller controller1 = Controller.getController();
         controller1.createSomeObjects();
         Patient p = new Patient("12", "Palle", 60);
@@ -28,6 +27,8 @@ class ControllerTest {
         antalEnheder[0]=5;
         DagligSkaev actual = controller1.opretDagligSkaevOrdination(LocalDate.of(2024, 2, 3), LocalDate.of(2024, 2, 4), p, laegemiddel, klokkeslet, antalEnheder);
         assertNotNull(actual);
+        assertTrue(p.getOrdinationer().contains(actual));
+
 
 
 

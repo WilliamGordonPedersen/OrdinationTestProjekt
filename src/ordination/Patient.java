@@ -36,7 +36,11 @@ public class Patient {
     }
 
     //TODO: Metoder (med specifikation) til at vedligeholde link til Ordination
-
+    public void addOrdination(Ordination o) {
+        if(!ordinationer.contains(o)) {
+            ordinationer.add(o);
+        }
+    }
 
     public ArrayList<Ordination> getOrdinationer() {
         return ordinationer;
