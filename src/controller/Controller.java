@@ -65,12 +65,10 @@ public class Controller {
 	 * Opretter og returnerer en DagligSkæv ordination. Hvis startDato er efter
 	 * slutDato kastes en IllegalArgumentException og ordinationen oprettes ikke.
 	 * Hvis antallet af elementer i klokkeSlet og antalEnheder er forskellige kastes også en IllegalArgumentException.
-	 *
 	 * Pre: startDen, slutDen, patient og laegemiddel er ikke null
 	 * Pre: alle tal i antalEnheder > 0
 	 */
 	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, LocalTime[] klokkeSlet, double[] antalEnheder) {
-
         ArrayList<Dosis> dosis = new ArrayList<>();
 		for (int i = 0; i < klokkeSlet.length; i++) {
 			Dosis dosis1 = new Dosis(klokkeSlet[i], antalEnheder[i]);
@@ -89,6 +87,10 @@ public class Controller {
 	 */
 	public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
 		// TODO
+		if(dato.isAfter(ordination.getStartDen())) {
+			ordination.givDosis(dato);
+		}
+
 	}
 
 	/**
