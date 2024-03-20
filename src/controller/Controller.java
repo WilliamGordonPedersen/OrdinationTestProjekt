@@ -40,7 +40,7 @@ public class Controller {
 		if (startDen.isAfter(slutDen)) {
 			new IllegalArgumentException("startdato er før slutdato");
 		} else if (startDen.isBefore(slutDen)) {
-			PN nyPN = new PN(startDen, slutDen, laegemiddel, 3,0);
+			PN nyPN = new PN(startDen, slutDen, laegemiddel,antal);
 			return nyPN;
 		}
 		return null;
@@ -56,7 +56,7 @@ public class Controller {
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
-		DagligFast dagligFast = new DagligFast(startDen, slutDen, morgenAntal, middagAntal, aftenAntal, natAntal, laegemiddel);
+		DagligFast dagligFast = new DagligFast(startDen, slutDen, laegemiddel, middagAntal, aftenAntal, natAntal, morgenAntal);
 		// TODO
 		return dagligFast;
 	}
