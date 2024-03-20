@@ -56,8 +56,9 @@ public class Controller {
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
+		DagligFast dagligFast = new DagligFast(startDen, slutDen, morgenAntal, middagAntal, aftenAntal, natAntal, laegemiddel);
 		// TODO
-		return null;
+		return dagligFast;
 	}
 
 	/**
@@ -69,14 +70,16 @@ public class Controller {
 	 * Pre: alle tal i antalEnheder > 0
 	 */
 	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, LocalTime[] klokkeSlet, double[] antalEnheder) {
-		ArrayList<Dosis> dosis = new ArrayList<>();
+
+        ArrayList<Dosis> dosis = new ArrayList<>();
 		for (int i = 0; i < klokkeSlet.length; i++) {
 			Dosis dosis1 = new Dosis(klokkeSlet[i], antalEnheder[i]);
 			dosis.add(dosis1);
 		}
 		DagligSkaev dagligSkaev = new DagligSkaev(startDen, slutDen, laegemiddel, dosis);
 		return dagligSkaev;
-	}
+        }
+
 
 	/**
 	 * En dato for hvornår ordinationen anvendes tilføjes ordinationen. Hvis
